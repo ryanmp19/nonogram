@@ -23,9 +23,73 @@ body{
 
 .box-left, .box-top{
 	display: flex;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 .box-top{
 	flex-direction: column-reverse;
+}
+
+.box-left div, .box-top div {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+}
+
+/***************************/
+#container2{
+	display: flex;
+	box-sizing: border-box;
+	flex-wrap: wrap;
+	width: 30px;
+}
+
+#game-board{
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+}
+
+#left-board{
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+#left-board, #left-board > div{
+	display: flex;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+}
+
+#top-board{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#top-board > div{
+	flex-direction: column-reverse;
+	margin: 1px;
+}
+
+.box{
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.box-game{
+	border: 1px solid black;
+}
+
+.box-top, .box-left{ /* only for development purpose*/
+	border: 1px solid black;
+}
+
+.hint-box{
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+	margin: 1px 0px;
 }
