@@ -2,17 +2,14 @@ function generateBoard(size = 10){
 	/*********************/
 	/* Generate black & board 
 	/*********************/
-	let boxSize = 30;
+	let boxSize = 32; //2px for border
 
 	let container = document.getElementById('container2');
 	let gameBoard = document.getElementById('game-board');
 	let res = [];
 	for(let i = 0; i < size; i++){
-		// console.log(`i = ${i}`)
-
 		let temp = [];
 		for(let j = 0; j < size; j++){
-			// console.log(`j = ${j}`)
 
 			// if 0, 0 => blank
 			// if 0, x => top
@@ -25,25 +22,12 @@ function generateBoard(size = 10){
 			div.setAttribute('id', `${i}-${j}`);
 			div.innerHTML = num; // comment this
 			gameBoard.appendChild(div);
-
-			if(i === 0){
-				let width = container.offsetWidth;
-
-				width += boxSize;
-				container.style.width = width + 'px';
-				gameBoard.style.width = width + 'px';
-			}
-		}
-
-		if(i !== size - 1){
-			let height = container.offsetHeight;
-
-			height += boxSize + 2;
-			container.style.height = height + 'px';
 		}
 
 		res.push(temp);
 	}
+
+	gameBoard.style.width = (boxSize * size) + 'px';
 
 	console.log(res);
 	/*********************/
@@ -142,40 +126,10 @@ function generateBoard(size = 10){
 			topArr.push(tempTop);
 		}
 	}
-	
-	/***************************/
-	/* Count left & top element 
-	/***************************/
-	let max = 0;
-	for(let i = 0; i < leftArr.length; i++){
-		if(max < leftArr[i].length){
-			max = leftArr[i].length;
-		}
-	}
 
-	let width = container.offsetWidth; //potential refactor to new function
-
-	width += max * (boxSize + 2);
-	container.style.width = width + 'px';
+	container.style.width = (leftBoard.offsetWidth + gameBoard.offsetWidth) + 'px';
 
 	let blank = document.getElementById('blank-board');
 
 	blank.style.width = leftBoard.offsetWidth + 'px';
-
-	let boxLeft = document.getElementsByClassName('box-left');
-	for(let i = 0; i < boxTop.length; i++){
-		boxLeft[i].style.width = (max + 1) * boxSize + 'px';
-	}
-
-	max = 0; //reset max for top (refactor to new function!!)
-	for(let i = 0; i < topArr.length; i++){
-		if(max < topArr[i].length){
-			max = topArr[i].length;
-		}
-	}
-
-	let boxTop = document.getElementsByClassName('box-top');
-	for(let i = 0; i < boxTop.length; i++){
-		boxTop[i].style.height = (max + 1) * boxSize + 'px';
-	}
 }
