@@ -1,7 +1,8 @@
 function generateBoard(size = 10){
-	/*********************/
-	/* Generate black & board 
-	/*********************/
+	/**********************/
+	/* Generate Game Board 
+	/**********************/
+	let padding = 20;
 	let boxSize = 32; //2px for border
 
 	let container = document.getElementById('container');
@@ -19,8 +20,18 @@ function generateBoard(size = 10){
 			temp.push(num)
 			let div = document.createElement('div');
 			div.setAttribute('class', 'box-game box');
-			div.setAttribute('id', `${i}-${j}`);
-			div.innerHTML = num; // comment this
+			div.setAttribute('id', `main-${i}-${j}`);
+			div.addEventListener('click', function(){
+				checkState(div.id)
+				document.getElementById(id).style.backgroundColor = 'black'
+			}, false);
+			div.addEventListener('contextmenu', function(ev){
+				ev.preventDefault();
+				document.getElementById(div.id).style.backgroundColor = 'white';
+				checkState(div.id);
+				return false;
+			}, false);
+			// div.innerHTML = num; // comment this
 			gameBoard.appendChild(div);
 		}
 
@@ -30,9 +41,9 @@ function generateBoard(size = 10){
 	gameBoard.style.width = (boxSize * size) + 'px';
 
 	console.log(res);
-	/*********************/
-	/* Count black 
-	/*********************/
+	/************************/
+	/* Count & Generate hint 
+	/************************/
 	let leftArr = [];
 	let topArr = [];
 
@@ -127,9 +138,22 @@ function generateBoard(size = 10){
 		}
 	}
 
-	container.style.width = (leftBoard.offsetWidth + gameBoard.offsetWidth) + 'px';
+	container.style.width = (leftBoard.offsetWidth + gameBoard.offsetWidth) + padding + 'px';
+	// container.style.height = (topBoard.offsetHeight + gameBoard.offsetHeight) + padding + 'px';
 
 	let blank = document.getElementById('blank-board');
 
 	blank.style.width = leftBoard.offsetWidth + 'px';
+}
+
+function checkState(id){
+	/**************/
+	/* -Change White <=> Black
+	/* -Check match vertically & horizontally with hint
+	/* -Check Win condition?
+	/* -add padding weirdness
+	/**************/
+
+	// document.getElementById(id).style.backgroundColor = 'black';
+	alert(id);
 }
