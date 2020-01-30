@@ -45,10 +45,8 @@ function generateBox(size = 10){
 		}
 	}
 
-	return res;
+	console.log(res);
 }
-
-console.log(generateBox())
 
 
 
