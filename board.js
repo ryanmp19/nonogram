@@ -4,7 +4,7 @@ function generateBoard(size = 10){
 	/*********************/
 	let boxSize = 32; //2px for border
 
-	let container = document.getElementById('container2');
+	let container = document.getElementById('container');
 	let gameBoard = document.getElementById('game-board');
 	let res = [];
 	for(let i = 0; i < size; i++){
