@@ -1,12 +1,8 @@
-function makeRandom(size = 10){
+function generateBox(size = 10){
 	let container = document.getElementById('container');
-	let res = {};
+	let res = [];
 	for(let i = 0; i <= size; i++){
 		// console.log(`i = ${i}`)
-
-		if(!(i - 1 in res)){
-			res[i - 1] = {};
-		}
 
 		for(let j = 0; j <= size; j++){
 			// console.log(`j = ${j}`)
@@ -38,14 +34,12 @@ function makeRandom(size = 10){
 					container.appendChild(div);
 				}
 				else{
-					if(!(j - 1 in res[i - 1])){
-						res[i - 1][j - 1] = Math.round(Math.random());
-						let div = document.createElement('div');
-						div.setAttribute('class', 'box-main');
-						div.setAttribute('id', `${i - 1}-${j - 1}`);
-						div.innerHTML = res[i - 1][j - 1];
-						container.appendChild(div);
-					}
+					res[i - 1][j - 1] = Math.round(Math.random());
+					let div = document.createElement('div');
+					div.setAttribute('class', 'box-main');
+					div.setAttribute('id', `${i - 1}-${j - 1}`);
+					div.innerHTML = res[i - 1][j - 1];
+					container.appendChild(div);
 				}
 			}
 		}
@@ -54,7 +48,7 @@ function makeRandom(size = 10){
 	return res;
 }
 
-
+console.log(generateBox())
 
 
 
