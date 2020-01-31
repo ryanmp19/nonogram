@@ -13,8 +13,10 @@ header{
 	width: 75%;
 }
 
-header p{
-	text-align: justify;
+main{
+	display: flex;
+	flex-direction: column;
+	width: 80%
 }
 
 /***************************/

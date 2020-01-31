@@ -37,6 +37,11 @@ function generateBoard(size = 10){
 				checkWin(size);
 				return false;
 			}, false);
+			div.addEventListener('auxclick', function(ev){
+				ev.preventDefault();
+				document.getElementById(div.id).style.backgroundColor = '';
+				return false;
+			}, false);
 			// div.innerHTML = num; // comment this
 			gameBoard.appendChild(div);
 		}
@@ -48,18 +53,18 @@ function generateBoard(size = 10){
 
 	// console.log(res);
 
-	res = [
-			[0, 0, 1, 0, 1, 0, 0, 0, 0, 0],
-			[0, 1, 1, 0, 1, 1, 0, 0, 0, 0],
-			[0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
-			[1, 1, 0, 1, 0, 1, 1, 0, 0, 1],
-			[0, 1, 1, 1, 1, 1, 0, 0, 1, 1],
-			[0, 0, 1, 1, 1, 0, 0, 0, 1, 0],
-			[1, 1, 1, 1, 1, 1, 0, 0, 1, 1],
-			[1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
-			[0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-			[0, 1, 1, 0, 1, 1, 1, 1, 0, 0]
-		]
+	// res = [
+	// 		[0, 0, 1, 0, 1, 0, 0, 0, 0, 0],
+	// 		[0, 1, 1, 0, 1, 1, 0, 0, 0, 0],
+	// 		[0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+	// 		[1, 1, 0, 1, 0, 1, 1, 0, 0, 1],
+	// 		[0, 1, 1, 1, 1, 1, 0, 0, 1, 1],
+	// 		[0, 0, 1, 1, 1, 0, 0, 0, 1, 0],
+	// 		[1, 1, 1, 1, 1, 1, 0, 0, 1, 1],
+	// 		[1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
+	// 		[0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+	// 		[0, 1, 1, 0, 1, 1, 1, 1, 0, 0]
+	// 	]
 
 	/************************/
 	/* Count & Generate hint 
