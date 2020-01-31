@@ -7,11 +7,17 @@
 	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body onload="generateBoard()">
-	<div id="container">
-		<div id="blank-board">&nbsp;</div>
-		<div id="top-board"></div>
-		<div id="left-board"></div>
-		<div id="game-board"></div>
+	<header>
+		<h1>Nonogram</h1>
+		<p><strong>Nonograms</strong>, also known as <strong>Picross</strong> or <strong>Griddlers</strong>, are picture logic puzzles in which cells in a grid must be colored or left blank according to numbers at the side of the grid to reveal a hidden picture. In this puzzle type, the numbers are a form of discrete tomography that measures how many unbroken lines of filled-in squares there are in any given row or column. For example, a clue of "4 8 3" would mean there are sets of four, eight, and three filled squares, in that order, with at least one white square between successive sets. <cite>Wikipedia</cite></p>
+	</header>
+	<div id="game-container">
+		<div id="board-container">
+			<div id="blank-board">&nbsp;</div>
+			<div id="top-board"></div>
+			<div id="left-board"></div>
+			<div id="game-board"></div>
+		</div>
 	</div>
 	<!-- <script type="text/javascript" src="./index.js"></script> -->
 	<script type="text/javascript" src="./board.js"></script>
