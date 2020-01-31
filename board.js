@@ -37,12 +37,20 @@ function generateBoard(size = 10){
 				checkWin(size);
 				return false;
 			}, false);
+			/*
 			div.addEventListener('auxclick', function(ev){
 				ev.preventDefault();
+				let id = div.id.split('-');
+				let leftBoard = document.getElementById(`left-${id[1]}`);
+				let topBoard = document.getElementById(`top-${id[2]}`);
+
 				document.getElementById(div.id).style.backgroundColor = '';
 				return false;
 			}, false);
+			*/ // needs to add logic
+
 			// div.innerHTML = num; // comment this
+			
 			gameBoard.appendChild(div);
 		}
 
